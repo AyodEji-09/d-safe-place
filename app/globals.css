@@ -1,10 +1,21 @@
 @import "tailwindcss";
 
+@theme {
+  --color-primary: #192838;
+  --color-primary-foreground: #ffffff;
+  --color-secondary: #4e81bc;
+  --color-muted: #cfd9d2;
+  --color-background: #F5F8FB;
+  --color-foreground: #5b5b52;
+
+  --font-sans: var(--font-inter), sans-serif;
+  --font-fraunces: var(--font-fraunces), Georgia, serif;
+  --font-amaranth: var(--font-amaranth), sans-serif;
+}
+
 :root {
-  --background: #ffffff;
+  --background: #F5F8FB;
   --foreground: #5b5b52;
-  --font-sans: var(--font-inter);
-  --font-fraunces: var(--font-fraunces);
   --primary: #192838;
   --primary-foreground: #ffffff;
   --secondary: #4e81bc;
@@ -12,7 +23,51 @@
 }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: var(--font-sans), sans-serif;
+  font-family: var(--font-inter), sans-serif;
+}
+
+/* Explicit utility classes */
+.bg-primary {
+  background-color: #192838 !important;
+}
+.text-primary {
+  color: #192838 !important;
+}
+.border-primary {
+  border-color: #192838 !important;
+}
+
+.bg-secondary {
+  background-color: #4e81bc !important;
+}
+.text-secondary {
+  color: #4e81bc !important;
+}
+.border-secondary {
+  border-color: #4e81bc !important;
+}
+
+.bg-muted {
+  background-color: #cfd9d2 !important;
+}
+.text-muted {
+  color: #cfd9d2 !important;
+}
+
+.text-primary-foreground {
+  color: #ffffff !important;
+}
+
+.font-fraunces {
+  font-family: var(--font-fraunces), Georgia, serif !important;
+}
+
+.font-amaranth {
+  font-family: var(--font-amaranth), sans-serif !important;
+}
+
+.font-sans {
+  font-family: var(--font-inter), sans-serif !important;
 }

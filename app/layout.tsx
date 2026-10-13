@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Inter, Fraunces, Amaranth } from "next/font/google";
 import "./globals.css";
+import { Navbar } from "@/components/layout/navbar";
+import { Footer } from "@/components/layout/footer";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -19,17 +21,29 @@ const amaranth = Amaranth({
 });
 
 export const metadata: Metadata = {
-  title: "D Safe Place",
-  description: "Official website of D Safe Place",
+  title: "D Safe Place | A community of welcome",
+  description:
+    "D Safe Place is a haven for children and displaced women — a place to rest, heal, and rebuild.",
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html
       lang="en"
       className={`${inter.variable} ${fraunces.variable} ${amaranth.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body
+        className="bg-background text-foreground flex min-h-full flex-col bg-[#F5F8FB] font-sans"
+        style={{ backgroundColor: "#F5F8FB" }}
+      >
+        <Navbar />
+        <main className="flex-1">{children}</main>
+        <Footer />
+      </body>
     </html>
   );
 }
