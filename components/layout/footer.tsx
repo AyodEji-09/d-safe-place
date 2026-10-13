@@ -76,12 +76,12 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="#volunteer" className="hover:text-white transition-colors">
+                <Link href="/contact#contact-form" className="hover:text-white transition-colors">
                   Volunteer
                 </Link>
               </li>
               <li>
-                <Link href="#donate" className="hover:text-white transition-colors">
+                <Link href="/contact#contact-form" className="hover:text-white transition-colors">
                   Donate
                 </Link>
               </li>

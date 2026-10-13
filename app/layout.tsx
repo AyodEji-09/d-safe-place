@@ -51,7 +51,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${fraunces.variable} ${amaranth.variable} h-full antialiased`}
+      className={`${inter.variable} ${fraunces.variable} ${amaranth.variable} h-full scroll-smooth antialiased`}
     >
       <body
         className="bg-background text-foreground flex min-h-full flex-col bg-[#F5F8FB] font-sans"

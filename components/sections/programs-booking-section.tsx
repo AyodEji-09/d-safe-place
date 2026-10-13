@@ -22,7 +22,8 @@ export function ProgramsBookingSection() {
 
   return (
     <section
-      className="bg-[#192838] py-20 text-white sm:py-24 lg:py-28"
+      id="book-appointment"
+      className="scroll-mt-20 bg-[#192838] py-20 text-white sm:py-24 lg:py-28"
       style={{ backgroundColor: "#192838" }}
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

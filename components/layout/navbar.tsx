@@ -71,7 +71,7 @@ export function Navbar() {
               asChild
               className="h-auto rounded-lg bg-[#192838] px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-[#192838]/90"
             >
-              <Link href="/#get-involved" className="text-white">
+              <Link href="/contact#contact-form" className="text-white">
                 Get Involved
               </Link>
             </Button>
@@ -129,7 +129,7 @@ export function Navbar() {
                   className="h-11 w-full rounded-lg bg-[#192838] py-3 text-white hover:bg-[#192838]/90"
                   onClick={() => setMobileMenuOpen(false)}
                 >
-                  <Link href="/#get-involved" className="text-white">
+                  <Link href="/contact#contact-form" className="text-white">
                     Get Involved
                   </Link>
                 </Button>

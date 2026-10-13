@@ -80,7 +80,10 @@ export function ContactSection() {
 
           {/* Right Column: Contact Form Card */}
           <div className="w-full lg:col-span-6">
-            <div className="rounded-2xl border border-slate-200/80 bg-white p-6 shadow-xs sm:p-8 lg:p-10">
+            <div
+              id="contact-form"
+              className="scroll-mt-28 rounded-2xl border border-slate-200/80 bg-white p-6 shadow-xs sm:p-8 lg:p-10"
+            >
               {isSubmitted ? (
                 <div className="flex flex-col items-center justify-center py-12 text-center">
                   <div className="flex size-14 items-center justify-center rounded-full bg-emerald-50 text-emerald-600">

@@ -22,7 +22,12 @@
   --muted: #cfd9d2;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
+  scroll-behavior: smooth;
   background-color: var(--background);
   color: var(--foreground);
   font-family: var(--font-inter), sans-serif;

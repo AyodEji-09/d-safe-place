@@ -23,7 +23,7 @@ const faqs: FaqItem[] = [
       <>
         Reach out through our{" "}
         <Link
-          href="/contact"
+          href="/contact#contact-form"
           className="font-medium underline underline-offset-2 transition-colors hover:text-[#192838]"
         >
           contact page
@@ -55,7 +55,14 @@ const faqs: FaqItem[] = [
         >
           Programs page
         </Link>
-        , sending us a message through our contact page, or calling us directly.
+        , sending us a message through our{" "}
+        <Link
+          href="/contact#contact-form"
+          className="font-medium underline underline-offset-2 transition-colors hover:text-[#192838]"
+        >
+          contact page
+        </Link>
+        , or calling us directly.
       </>
     ),
   },
@@ -78,7 +85,7 @@ const faqs: FaqItem[] = [
         We welcome community support! You can sign up to volunteer, donate
         essential supplies, or make a monetary donation through our{" "}
         <Link
-          href="/#get-involved"
+          href="/contact#contact-form"
           className="font-medium underline underline-offset-2 transition-colors hover:text-[#192838]"
         >
           Get Involved
