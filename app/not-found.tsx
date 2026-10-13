@@ -2,42 +2,24 @@ import * as React from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
-function SparkleIcon({ className }: { className?: string }) {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      fill="currentColor"
-      className={className || "size-4 text-white"}
-      aria-hidden="true"
-    >
-      <path d="M12 3C12 7.97 7.97 12 3 12C7.97 12 12 16.03 12 21C12 16.03 16.03 12 21 12C16.03 12 12 7.97 12 3Z" />
-    </svg>
-  );
-}
-
 export default function NotFound() {
   return (
     <div className="flex flex-1 items-center justify-center bg-[#F5F8FB] px-4 py-20 sm:px-6 sm:py-28 lg:px-8">
-      <div className="flex max-w-2xl flex-col items-center text-center">
-        {/* Sparkle Badge */}
-        <div className="mb-6 flex size-12 items-center justify-center rounded-full bg-[#192838] shadow-xs">
-          <SparkleIcon className="size-5 text-white" />
-        </div>
-
+      <div className="flex max-w-xl flex-col items-center text-center">
         {/* 404 Large Display */}
         <span className="font-fraunces text-7xl font-normal tracking-tight text-[#192838] select-none sm:text-8xl lg:text-9xl">
           404
         </span>
 
-        {/* Headline */}
-        <h1 className="font-fraunces mt-4 text-2xl font-normal tracking-tight text-[#192838] sm:text-3xl lg:text-4xl">
-          Even when you take a wrong turn, our doors are always open.
+        {/* Heading */}
+        <h1 className="font-fraunces mt-3 text-2xl font-normal tracking-tight text-[#192838] sm:text-3xl">
+          Page not found
         </h1>
 
-        {/* Narrative Description */}
-        <p className="mt-4 max-w-lg text-base leading-relaxed text-slate-600 sm:text-lg">
-          The page you are looking for might have been moved, renamed, or is
-          temporarily unavailable. Let us help you find your seat at the table.
+        {/* Single concise paragraph */}
+        <p className="mt-3 max-w-md text-base leading-relaxed text-slate-600 sm:text-lg">
+          Even when you take a wrong turn, our doors are always open. Let us help
+          you find your way back.
         </p>
 
         {/* Action Buttons */}
@@ -61,8 +43,7 @@ export default function NotFound() {
         </div>
 
         {/* Quick links */}
-        <div className="mt-10 flex items-center gap-3 text-xs text-slate-500">
-          <span>Looking for something else?</span>
+        <div className="mt-8 flex items-center gap-3 text-xs text-slate-500">
           <Link
             href="/about"
             className="font-medium text-[#192838] underline-offset-4 hover:underline"
