@@ -10,7 +10,7 @@ import { Button } from "@/components/ui/button";
 const navLinks = [
   { name: "Home", href: "/" },
   { name: "About", href: "/about" },
-  { name: "Programs", href: "/#programs" },
+  { name: "Programs", href: "/programs" },
   { name: "FAQ", href: "/#faq" },
   { name: "Contact", href: "/#contact" },
 ];
@@ -26,7 +26,7 @@ export function Navbar() {
   };
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-slate-200/60 bg-[#F5F8FB]/95 backdrop-blur-xs transition-all relative">
+    <header className="relative sticky top-0 z-50 w-full border-b border-[#1F3A3424] bg-[#F5F8FB]/95 backdrop-blur-xs transition-all">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-20 items-center justify-between">
           {/* Logo */}
@@ -58,7 +58,7 @@ export function Navbar() {
                     className={
                       active
                         ? "relative py-1 font-semibold text-[#192838] after:absolute after:right-0 after:bottom-0 after:left-0 after:h-0.5 after:bg-[#192838]"
-                        : "py-1 text-foreground/80 hover:text-[#192838] transition-colors"
+                        : "text-foreground/80 py-1 transition-colors hover:text-[#192838]"
                     }
                   >
                     {link.name}
@@ -82,14 +82,14 @@ export function Navbar() {
             <button
               type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="inline-flex items-center justify-center rounded-md p-2 text-foreground hover:bg-slate-100 hover:text-primary focus:outline-hidden"
+              className="text-foreground hover:text-primary inline-flex items-center justify-center rounded-md p-2 hover:bg-slate-100 focus:outline-hidden"
               aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
               aria-expanded={mobileMenuOpen}
             >
               {mobileMenuOpen ? (
-                <X className="size-6 text-primary" />
+                <X className="text-primary size-6" />
               ) : (
-                <Menu className="size-6 text-primary" />
+                <Menu className="text-primary size-6" />
               )}
             </button>
           </div>
@@ -104,7 +104,7 @@ export function Navbar() {
             onClick={() => setMobileMenuOpen(false)}
             aria-hidden="true"
           />
-          <div className="absolute top-full right-0 left-0 z-50 animate-in fade-in slide-in-from-top-2 border-b border-slate-200/80 bg-[#F5F8FB] px-4 pt-4 pb-6 shadow-2xl duration-200 md:hidden">
+          <div className="animate-in fade-in slide-in-from-top-2 absolute top-full right-0 left-0 z-50 border-b border-slate-200/80 bg-[#F5F8FB] px-4 pt-4 pb-6 shadow-2xl duration-200 md:hidden">
             <div className="flex flex-col gap-3">
               {navLinks.map((link) => {
                 const active = isActive(link.href);
@@ -115,8 +115,8 @@ export function Navbar() {
                     onClick={() => setMobileMenuOpen(false)}
                     className={`rounded-md px-3 py-2.5 text-base font-medium transition-colors ${
                       active
-                        ? "bg-slate-200/70 font-semibold text-primary"
-                        : "text-foreground hover:bg-slate-200/50 hover:text-primary"
+                        ? "text-primary bg-slate-200/70 font-semibold"
+                        : "text-foreground hover:text-primary hover:bg-slate-200/50"
                     }`}
                   >
                     {link.name}

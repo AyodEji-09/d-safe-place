@@ -29,7 +29,7 @@ export function HeroSection() {
                 asChild
                 className="bg-primary h-11 rounded-lg bg-[#192838] px-6 py-2.5 text-sm font-medium text-white transition-colors hover:bg-[#192838]/90"
               >
-                <Link href="#request-help" className="text-white">
+                <Link href="/contact" className="text-white">
                   Request Help
                 </Link>
               </Button>
@@ -38,7 +38,7 @@ export function HeroSection() {
                 variant="outline"
                 className="h-11 rounded-lg border-[#192838] bg-transparent px-6 py-2.5 text-sm font-medium text-[#192838] transition-colors hover:bg-slate-100"
               >
-                <Link href="#our-story">Our Story</Link>
+                <Link href="/about">Our Story</Link>
               </Button>
             </div>
 
