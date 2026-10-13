@@ -1,5 +1,10 @@
 import * as React from "react";
-import { Card, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+} from "@/components/ui/card";
 
 const programs = [
   {
@@ -36,35 +41,35 @@ export function ProgramsSection() {
   return (
     <section
       id="programs"
-      className="py-16 sm:py-20 lg:py-24 bg-[#F5F8FB]"
+      className="bg-[#F5F8FB] py-16 sm:py-20 lg:py-24"
       style={{ backgroundColor: "#F5F8FB" }}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="mb-10 sm:mb-12">
-          <span className="text-sm font-medium text-slate-500 mb-2 block tracking-wide">
+          <span className="mb-2 block text-sm font-medium tracking-wide text-slate-500">
             What we do
           </span>
-          <h2 className="font-fraunces text-3xl sm:text-4xl lg:text-[40px] font-normal text-[#192838] text-primary tracking-tight">
+          <h2 className="font-fraunces text-primary text-3xl font-normal tracking-tight text-[#192838] sm:text-4xl lg:text-[40px]">
             Three doors, one welcome
           </h2>
         </div>
 
         {/* Programs Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+        <div className="grid grid-cols-1 gap-6 sm:gap-8 md:grid-cols-3">
           {programs.map((program) => (
             <Card
               key={program.title}
-              className="border border-slate-200/90 rounded-2xl bg-white shadow-xs hover:shadow-md transition-shadow duration-200"
+              className="rounded-2xl border border-slate-200/90 bg-white shadow-xs transition-shadow duration-200 hover:shadow-md"
             >
-              <CardHeader className="p-7 sm:p-8 flex flex-col items-start gap-4">
-                <div className="size-10 rounded-full bg-[#192838] bg-primary flex items-center justify-center shrink-0">
+              <CardHeader className="flex flex-col items-start gap-4 p-7 sm:p-8">
+                <div className="bg-primary flex size-10 shrink-0 items-center justify-center rounded-full bg-[#192838]">
                   <SparkleIcon className="size-4 text-white" />
                 </div>
-                <CardTitle className="font-sans text-xl font-bold text-[#192838] text-primary mt-1">
+                <CardTitle className="font-fraunces text-primary mt-1 text-xl font-bold text-[#192838]">
                   {program.title}
                 </CardTitle>
-                <CardDescription className="text-sm text-foreground/85 leading-relaxed">
+                <CardDescription className="text-foreground/85 text-sm leading-relaxed">
                   {program.description}
                 </CardDescription>
               </CardHeader>
