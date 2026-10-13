@@ -24,6 +24,23 @@ export const metadata: Metadata = {
   title: "D Safe Place | A community of welcome",
   description:
     "D Safe Place is a haven for children and displaced women — a place to rest, heal, and rebuild.",
+  icons: {
+    icon: [
+      {
+        url: "/icon.svg",
+        type: "image/svg+xml",
+      },
+      {
+        url: "/icon-light.png",
+        media: "(prefers-color-scheme: light)",
+      },
+      {
+        url: "/icon-dark.png",
+        media: "(prefers-color-scheme: dark)",
+      },
+    ],
+    shortcut: "/favicon.ico",
+  },
 };
 
 export default function RootLayout({
