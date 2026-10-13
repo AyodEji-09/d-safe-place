@@ -5,16 +5,34 @@ import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { subscribeNewsletter } from "@/app/actions/newsletter";
 
 export function Footer() {
   const [email, setEmail] = React.useState("");
+  const [isSubmitting, setIsSubmitting] = React.useState(false);
   const [isSubscribed, setIsSubscribed] = React.useState(false);
+  const [errorMessage, setErrorMessage] = React.useState<string | null>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (email.trim()) {
-      setIsSubscribed(true);
-      setEmail("");
+    if (!email.trim()) return;
+
+    setErrorMessage(null);
+    setIsSubscribed(false);
+    setIsSubmitting(true);
+
+    try {
+      const result = await subscribeNewsletter(email);
+      if (result.success) {
+        setIsSubscribed(true);
+        setEmail("");
+      } else {
+        setErrorMessage(result.error || "Subscription failed. Please try again.");
+      }
+    } catch {
+      setErrorMessage("An unexpected error occurred. Please try again.");
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -96,28 +114,38 @@ export function Footer() {
             <p className="text-sm text-slate-400 leading-relaxed">
               Monthly notes from our house — no spam.
             </p>
-            {isSubscribed ? (
-              <p className="text-sm text-emerald-400 font-medium">
-                Thank you for subscribing!
-              </p>
-            ) : (
+            <div className="flex flex-col gap-2">
               <form onSubmit={handleSubmit} className="flex mt-1">
                 <Input
                   type="email"
                   placeholder="Email address"
                   value={email}
-                  onChange={(e) => setEmail(e.target.value)}
+                  onChange={(e) => {
+                    setEmail(e.target.value);
+                    if (isSubscribed) setIsSubscribed(false);
+                    if (errorMessage) setErrorMessage(null);
+                  }}
                   required
+                  disabled={isSubmitting}
                   className="rounded-r-none bg-white text-slate-900 border-0 h-10 text-sm focus-visible:ring-1 focus-visible:ring-secondary placeholder:text-slate-400"
                 />
                 <Button
                   type="submit"
-                  className="rounded-l-none bg-[#4e81bc] bg-secondary hover:bg-[#4e81bc]/90 text-white font-medium px-4 h-10 shrink-0 text-sm"
+                  disabled={isSubmitting}
+                  className="rounded-l-none bg-[#4e81bc] bg-secondary hover:bg-[#4e81bc]/90 text-white font-medium px-4 h-10 shrink-0 text-sm disabled:opacity-75"
                 >
-                  Join
+                  {isSubmitting ? "..." : "Join"}
                 </Button>
               </form>
-            )}
+              {isSubscribed && (
+                <p className="text-xs text-emerald-400 font-medium">
+                  Thank you for subscribing!
+                </p>
+              )}
+              {errorMessage && (
+                <p className="text-xs text-red-400">{errorMessage}</p>
+              )}
+            </div>
           </div>
         </div>
 

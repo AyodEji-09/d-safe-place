@@ -4,9 +4,12 @@ import * as React from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { submitAppointmentForm } from "@/app/actions/appointment";
 
 export function ProgramsBookingSection() {
   const [submitted, setSubmitted] = React.useState(false);
+  const [isSubmitting, setIsSubmitting] = React.useState(false);
+  const [errorMessage, setErrorMessage] = React.useState<string | null>(null);
   const [formData, setFormData] = React.useState({
     fullName: "",
     phoneNumber: "",
@@ -15,9 +18,25 @@ export function ProgramsBookingSection() {
     notes: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    setErrorMessage(null);
+    setIsSubmitting(true);
+
+    try {
+      const result = await submitAppointmentForm(formData);
+      if (result.success) {
+        setSubmitted(true);
+      } else {
+        setErrorMessage(
+          result.error || "Failed to schedule appointment. Please try again."
+        );
+      }
+    } catch {
+      setErrorMessage("An unexpected error occurred. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -183,13 +202,21 @@ export function ProgramsBookingSection() {
                 />
               </div>
 
+              {/* Error Message */}
+              {errorMessage && (
+                <div className="rounded-lg bg-red-50 p-3 text-sm text-red-600">
+                  {errorMessage}
+                </div>
+              )}
+
               {/* Submit Button */}
               <div className="pt-2">
                 <Button
                   type="submit"
-                  className="h-11 rounded-lg bg-[#192838] px-6 py-2.5 text-sm font-medium text-white transition-colors hover:bg-[#192838]/90"
+                  disabled={isSubmitting}
+                  className="h-11 rounded-lg bg-[#192838] px-6 py-2.5 text-sm font-medium text-white transition-colors hover:bg-[#192838]/90 disabled:opacity-70"
                 >
-                  Request Appointment
+                  {isSubmitting ? "Requesting..." : "Request Appointment"}
                 </Button>
               </div>
             </form>

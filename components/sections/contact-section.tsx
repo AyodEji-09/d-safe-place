@@ -5,6 +5,7 @@ import { ChevronDown, CheckCircle2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { submitContactForm } from "@/app/actions/contact";
 
 const contactInfo = [
   {
@@ -36,12 +37,26 @@ export function ContactSection() {
     reason: "Requesting help",
     message: "",
   });
+  const [isSubmitting, setIsSubmitting] = React.useState(false);
   const [isSubmitted, setIsSubmitted] = React.useState(false);
+  const [errorMessage, setErrorMessage] = React.useState<string | null>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (formData.name.trim() && formData.contact.trim()) {
-      setIsSubmitted(true);
+    setErrorMessage(null);
+    setIsSubmitting(true);
+
+    try {
+      const result = await submitContactForm(formData);
+      if (result.success) {
+        setIsSubmitted(true);
+      } else {
+        setErrorMessage(result.error || "Failed to send message. Please try again.");
+      }
+    } catch {
+      setErrorMessage("An unexpected error occurred. Please try again.");
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -204,13 +219,21 @@ export function ContactSection() {
                     />
                   </div>
 
+                  {/* Error Message */}
+                  {errorMessage && (
+                    <div className="rounded-lg bg-red-50 p-3 text-sm text-red-600">
+                      {errorMessage}
+                    </div>
+                  )}
+
                   {/* Row 4: Submit Button */}
                   <div className="pt-2">
                     <Button
                       type="submit"
-                      className="h-11 w-full rounded-lg bg-[#192838] py-2.5 text-sm font-medium text-white transition-colors hover:bg-[#192838]/90"
+                      disabled={isSubmitting}
+                      className="h-11 w-full rounded-lg bg-[#192838] py-2.5 text-sm font-medium text-white transition-colors hover:bg-[#192838]/90 disabled:opacity-70"
                     >
-                      Send message
+                      {isSubmitting ? "Sending..." : "Send message"}
                     </Button>
                   </div>
                 </form>
