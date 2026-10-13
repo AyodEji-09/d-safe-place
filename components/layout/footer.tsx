@@ -57,7 +57,7 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="#faq" className="hover:text-white transition-colors">
+                <Link href="/faq" className="hover:text-white transition-colors">
                   FAQ
                 </Link>
               </li>
