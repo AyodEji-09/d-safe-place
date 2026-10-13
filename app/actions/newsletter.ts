@@ -28,34 +28,54 @@ export async function subscribeNewsletter(
       return { success: true, devMode: true };
     }
 
-    // If an audience ID is configured, add subscriber to Resend Audience contacts
+    // 1. If an audience ID is configured, add subscriber to Resend Audience contacts
     if (audienceId) {
-      const { error } = await resend.contacts.create({
+      const { error: audienceError } = await resend.contacts.create({
         email: trimmedEmail,
         audienceId: audienceId,
       });
 
-      if (error) {
-        console.error("Resend error adding contact to audience:", error);
-        return { success: false, error: error.message };
+      if (audienceError) {
+        console.warn("Resend notice adding contact to audience:", audienceError);
       }
-    } else {
-      // If audience ID is not yet created, send an internal notification email instead
-      console.info(
-        "RESEND_AUDIENCE_ID not provided. Sending subscriber notification email instead."
-      );
-      await resend.emails.send({
-        from: FROM_EMAIL,
-        to: NOTIFICATION_EMAIL,
-        subject: `[D Safe Place] New Newsletter Subscriber: ${trimmedEmail}`,
-        html: `
-          <div style="font-family: sans-serif; padding: 20px;">
-            <h2>New Newsletter Subscriber</h2>
-            <p><strong>Email:</strong> ${trimmedEmail}</p>
-            <p style="color: #64748b; font-size: 13px;">Add RESEND_AUDIENCE_ID to automatically sync subscribers to your Resend Audience.</p>
-          </div>
-        `,
-      });
+    }
+
+    // 2. Always notify the admin about the new subscriber
+    const { error: emailError } = await resend.emails.send({
+      from: FROM_EMAIL,
+      to: NOTIFICATION_EMAIL,
+      subject: `[D Safe Place] New Newsletter Subscriber: ${trimmedEmail}`,
+      html: `
+        <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; padding: 24px; border: 1px solid #e2e8f0; border-radius: 12px; background-color: #ffffff;">
+          <h2 style="color: #192838; margin-bottom: 8px;">New Newsletter Subscriber</h2>
+          <p style="color: #64748b; font-size: 14px; margin-top: 0;">Received through D Safe Place website footer</p>
+          <hr style="border: none; border-top: 1px solid #e2e8f0; margin: 16px 0;" />
+          
+          <table style="width: 100%; border-collapse: collapse; font-size: 15px;">
+            <tr>
+              <td style="padding: 8px 0; color: #64748b; width: 140px; font-weight: 500;">Email Address:</td>
+              <td style="padding: 8px 0; color: #192838; font-weight: 600;">
+                <a href="mailto:${trimmedEmail}" style="color: #4e81bc; text-decoration: none;">${trimmedEmail}</a>
+              </td>
+            </tr>
+            <tr>
+              <td style="padding: 8px 0; color: #64748b; font-weight: 500;">Audience Sync:</td>
+              <td style="padding: 8px 0; color: #192838;">
+                ${audienceId ? "Synced to Resend Audience" : "None (RESEND_AUDIENCE_ID not set)"}
+              </td>
+            </tr>
+          </table>
+          
+          <p style="font-size: 12px; color: #94a3b8; margin-top: 24px; margin-bottom: 0;">
+            This notification was sent automatically from D Safe Place.
+          </p>
+        </div>
+      `,
+    });
+
+    if (emailError) {
+      console.error("Resend error sending newsletter notification email:", emailError);
+      return { success: false, error: emailError.message };
     }
 
     return { success: true };
