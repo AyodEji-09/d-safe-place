@@ -23,7 +23,7 @@ const faqs: FaqItem[] = [
       <>
         Reach out through our{" "}
         <Link
-          href="/#contact"
+          href="/contact"
           className="font-medium underline underline-offset-2 transition-colors hover:text-[#192838]"
         >
           contact page
