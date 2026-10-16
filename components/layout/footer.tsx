@@ -27,7 +27,9 @@ export function Footer() {
         setIsSubscribed(true);
         setEmail("");
       } else {
-        setErrorMessage(result.error || "Subscription failed. Please try again.");
+        setErrorMessage(
+          result.error || "Subscription failed. Please try again.",
+        );
       }
     } catch {
       setErrorMessage("An unexpected error occurred. Please try again.");
@@ -37,11 +39,14 @@ export function Footer() {
   };
 
   return (
-    <footer className="w-full bg-[#192838] bg-primary text-slate-300" style={{ backgroundColor: "#192838" }}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-12 pb-14 border-b border-slate-700/60">
+    <footer
+      className="bg-primary w-full bg-[#192838] text-slate-300"
+      style={{ backgroundColor: "#192838" }}
+    >
+      <div className="mx-auto max-w-7xl px-4 pt-16 pb-12 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 gap-10 border-b border-slate-700/60 pb-14 md:grid-cols-2 lg:grid-cols-5 lg:gap-12">
           {/* Brand Info */}
-          <div className="lg:col-span-2 flex flex-col gap-4">
+          <div className="flex flex-col gap-4 lg:col-span-2">
             <Link href="/" className="inline-block" aria-label="D Safe Place">
               <Image
                 src="/images/logo.png"
@@ -52,31 +57,48 @@ export function Footer() {
                 className="h-7 w-auto object-contain brightness-0 invert"
               />
             </Link>
-            <p className="text-sm text-slate-400 leading-relaxed max-w-sm mt-1">
-              A haven for children and displaced women, and a table always set for
-              family and hospitality.
+            <p className="mt-1 max-w-sm text-sm leading-relaxed text-slate-400">
+              A haven for children and displaced women, and a table always set
+              for family and hospitality.
             </p>
           </div>
 
           {/* Explore Links */}
           <div className="flex flex-col gap-3">
-            <h4 className="text-sm font-semibold text-white tracking-wide">
+            <h4 className="text-sm font-semibold tracking-wide text-white">
               Explore
             </h4>
             <ul className="flex flex-col gap-2.5 text-sm text-slate-400">
               <li>
-                <Link href="/about" className="hover:text-white transition-colors">
+                <Link
+                  href="/about"
+                  className="transition-colors hover:text-white"
+                >
                   About
                 </Link>
               </li>
               <li>
-                <Link href="/programs" className="hover:text-white transition-colors">
+                <Link
+                  href="/programs"
+                  className="transition-colors hover:text-white"
+                >
                   Programs
                 </Link>
               </li>
               <li>
-                <Link href="/faq" className="hover:text-white transition-colors">
+                <Link
+                  href="/faq"
+                  className="transition-colors hover:text-white"
+                >
                   FAQ
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/contact"
+                  className="transition-colors hover:text-white"
+                >
+                  Contact
                 </Link>
               </li>
             </ul>
@@ -84,22 +106,31 @@ export function Footer() {
 
           {/* Get Involved Links */}
           <div className="flex flex-col gap-3">
-            <h4 className="text-sm font-semibold text-white tracking-wide">
+            <h4 className="text-sm font-semibold tracking-wide text-white">
               Get involved
             </h4>
             <ul className="flex flex-col gap-2.5 text-sm text-slate-400">
               <li>
-                <Link href="/contact" className="hover:text-white transition-colors">
+                <Link
+                  href="/contact"
+                  className="transition-colors hover:text-white"
+                >
                   Request Help
                 </Link>
               </li>
               <li>
-                <Link href="/contact#contact-form" className="hover:text-white transition-colors">
+                <Link
+                  href="/contact#contact-form"
+                  className="transition-colors hover:text-white"
+                >
                   Volunteer
                 </Link>
               </li>
               <li>
-                <Link href="/contact#contact-form" className="hover:text-white transition-colors">
+                <Link
+                  href="/contact#contact-form"
+                  className="transition-colors hover:text-white"
+                >
                   Donate
                 </Link>
               </li>
@@ -108,14 +139,14 @@ export function Footer() {
 
           {/* Newsletter Signup */}
           <div className="flex flex-col gap-3">
-            <h4 className="text-sm font-semibold text-white tracking-wide">
+            <h4 className="text-sm font-semibold tracking-wide text-white">
               Stay in touch
             </h4>
-            <p className="text-sm text-slate-400 leading-relaxed">
+            <p className="text-sm leading-relaxed text-slate-400">
               Monthly notes from our house — no spam.
             </p>
             <div className="flex flex-col gap-2">
-              <form onSubmit={handleSubmit} className="flex mt-1">
+              <form onSubmit={handleSubmit} className="mt-1 flex">
                 <Input
                   type="email"
                   placeholder="Email address"
@@ -127,18 +158,18 @@ export function Footer() {
                   }}
                   required
                   disabled={isSubmitting}
-                  className="rounded-r-none bg-white text-slate-900 border-0 h-10 text-sm focus-visible:ring-1 focus-visible:ring-secondary placeholder:text-slate-400"
+                  className="focus-visible:ring-secondary h-10 rounded-r-none border-0 bg-white text-sm text-slate-900 placeholder:text-slate-400 focus-visible:ring-1"
                 />
                 <Button
                   type="submit"
                   disabled={isSubmitting}
-                  className="rounded-l-none bg-[#4e81bc] bg-secondary hover:bg-[#4e81bc]/90 text-white font-medium px-4 h-10 shrink-0 text-sm disabled:opacity-75"
+                  className="bg-secondary h-10 shrink-0 rounded-l-none bg-[#4e81bc] px-4 text-sm font-medium text-white hover:bg-[#4e81bc]/90 disabled:opacity-75"
                 >
                   {isSubmitting ? "..." : "Join"}
                 </Button>
               </form>
               {isSubscribed && (
-                <p className="text-xs text-emerald-400 font-medium">
+                <p className="text-xs font-medium text-emerald-400">
                   Thank you for subscribing!
                 </p>
               )}
@@ -150,7 +181,7 @@ export function Footer() {
         </div>
 
         {/* Bottom row */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
+        <div className="flex flex-col items-center justify-between gap-4 pt-8 text-xs text-slate-400 sm:flex-row">
           <p>© 2026 D Safe Place. All rights reserved.</p>
           <p>Built with hospitality.</p>
         </div>

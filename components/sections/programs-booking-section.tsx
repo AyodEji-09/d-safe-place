@@ -29,7 +29,7 @@ export function ProgramsBookingSection() {
         setSubmitted(true);
       } else {
         setErrorMessage(
-          result.error || "Failed to schedule appointment. Please try again."
+          result.error || "Failed to schedule appointment. Please try again.",
         );
       }
     } catch {
@@ -49,10 +49,10 @@ export function ProgramsBookingSection() {
         {/* Section Header */}
         <div className="mb-10 sm:mb-12">
           <span className="mb-2 block text-sm font-medium tracking-wide text-slate-400">
-            Book time with us
+            Book Time With Us
           </span>
           <h2 className="font-fraunces text-3xl font-normal tracking-tight text-white sm:text-4xl lg:text-[40px]">
-            Schedule an appointment
+            Schedule an Appointment
           </h2>
         </div>
 
@@ -135,7 +135,7 @@ export function ProgramsBookingSection() {
                     htmlFor="program"
                     className="text-xs font-medium text-slate-700"
                   >
-                    Program
+                    Program of Interest
                   </label>
                   <div className="relative">
                     <select
@@ -164,7 +164,7 @@ export function ProgramsBookingSection() {
                     htmlFor="preferredDate"
                     className="text-xs font-medium text-slate-700"
                   >
-                    Preferred date
+                    Preferred Date
                   </label>
                   <Input
                     id="preferredDate"
@@ -188,7 +188,7 @@ export function ProgramsBookingSection() {
                   htmlFor="notes"
                   className="text-xs font-medium text-slate-700"
                 >
-                  Anything we should know?
+                  Additional Notes (Optional)
                 </label>
                 <Textarea
                   id="notes"
@@ -216,7 +216,7 @@ export function ProgramsBookingSection() {
                   disabled={isSubmitting}
                   className="h-11 rounded-lg bg-[#192838] px-6 py-2.5 text-sm font-medium text-white transition-colors hover:bg-[#192838]/90 disabled:opacity-70"
                 >
-                  {isSubmitting ? "Requesting..." : "Request Appointment"}
+                  {isSubmitting ? "Requesting..." : "Request an Appointment"}
                 </Button>
               </div>
             </form>

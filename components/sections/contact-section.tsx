@@ -9,16 +9,16 @@ import { submitContactForm } from "@/app/actions/contact";
 
 const contactInfo = [
   {
-    title: "Intake line",
-    detail: "Available weekdays, 9am - 6pm",
+    title: "Intake Line",
+    detail: "Available weekdays, 9:00 a.m. - 6:00 p.m.",
   },
   {
-    title: "Confidential email",
-    detail: "Response within one business day",
+    title: "Confidential Email",
+    detail: "We aim to respond within one business day.",
   },
   {
-    title: "Walk-ins",
-    detail: "Hospitality House welcomes walk-ins for meals daily",
+    title: "Walk-Ins",
+    detail: "Hospitality House welcomes walk-ins for meals daily.",
   },
 ];
 
@@ -51,7 +51,9 @@ export function ContactSection() {
       if (result.success) {
         setIsSubmitted(true);
       } else {
-        setErrorMessage(result.error || "Failed to send message. Please try again.");
+        setErrorMessage(
+          result.error || "Failed to send message. Please try again.",
+        );
       }
     } catch {
       setErrorMessage("An unexpected error occurred. Please try again.");
@@ -67,16 +69,18 @@ export function ContactSection() {
           {/* Left Column: Information */}
           <div className="flex flex-col lg:col-span-6 lg:pt-4">
             <p className="text-sm font-normal text-[#5b5b52] sm:text-base">
-              Reach out
+              Reach Out
             </p>
             <h1 className="font-fraunces mt-2 text-3xl font-normal tracking-tight text-[#192838] sm:text-4xl md:text-5xl md:leading-tight">
-              Contact us
+              Contact Us
             </h1>
 
             <p className="mt-5 max-w-lg text-base leading-relaxed text-[#5b5b52] sm:text-lg">
               Whether you need help, want to volunteer, or would like to give,
-              this door is always open. Every message reaches a real person on
-              our team.
+              this door is open to you. Every message reaches a real person on
+              our team. If you have a question about our programmes or would
+              like to discuss the support you are looking for, please get in
+              touch.
             </p>
 
             <div className="mt-10 flex flex-col gap-6 sm:mt-12 sm:gap-8">
@@ -108,8 +112,8 @@ export function ContactSection() {
                     Message received
                   </h3>
                   <p className="mt-2 max-w-sm text-sm text-[#5b5b52]">
-                    Thank you, {formData.name}. Our intake team will get back to
-                    you promptly and confidentially.
+                    Thank you for contacting D Safe Place. Your message has been
+                    received.
                   </p>
                   <Button
                     type="button"
@@ -136,7 +140,7 @@ export function ContactSection() {
                         htmlFor="name"
                         className="text-xs font-medium text-slate-700"
                       >
-                        Name
+                        Full Name
                       </label>
                       <Input
                         id="name"
@@ -156,7 +160,7 @@ export function ContactSection() {
                         htmlFor="contact"
                         className="text-xs font-medium text-slate-700"
                       >
-                        Email or phone
+                        Email Address or Phone Number
                       </label>
                       <Input
                         id="contact"
@@ -178,7 +182,7 @@ export function ContactSection() {
                       htmlFor="reason"
                       className="text-xs font-medium text-slate-700"
                     >
-                      I&apos;m reaching out about
+                      What Are You Reaching Out About?
                     </label>
                     <div className="relative">
                       <select
@@ -187,7 +191,7 @@ export function ContactSection() {
                         onChange={(e) =>
                           setFormData({ ...formData, reason: e.target.value })
                         }
-                        className="h-11 w-full appearance-none rounded-lg border border-slate-300 bg-white px-3.5 pr-10 text-sm text-slate-900 shadow-xs transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4e81bc]"
+                        className="h-11 w-full appearance-none rounded-lg border border-slate-300 bg-white px-3.5 pr-10 text-sm text-slate-900 shadow-xs transition-colors focus-visible:ring-2 focus-visible:ring-[#4e81bc] focus-visible:outline-none"
                       >
                         {reasonOptions.map((opt) => (
                           <option key={opt} value={opt}>
@@ -205,7 +209,7 @@ export function ContactSection() {
                       htmlFor="message"
                       className="text-xs font-medium text-slate-700"
                     >
-                      Message
+                      Your Message
                     </label>
                     <Textarea
                       id="message"
@@ -233,7 +237,7 @@ export function ContactSection() {
                       disabled={isSubmitting}
                       className="h-11 w-full rounded-lg bg-[#192838] py-2.5 text-sm font-medium text-white transition-colors hover:bg-[#192838]/90 disabled:opacity-70"
                     >
-                      {isSubmitting ? "Sending..." : "Send message"}
+                      {isSubmitting ? "Sending..." : "Send Message"}
                     </Button>
                   </div>
                 </form>

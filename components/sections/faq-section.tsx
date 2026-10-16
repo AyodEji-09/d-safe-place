@@ -26,10 +26,10 @@ const faqs: FaqItem[] = [
           href="/contact#contact-form"
           className="font-medium underline underline-offset-2 transition-colors hover:text-[#192838]"
         >
-          contact page
+          Contact page
         </Link>{" "}
-        or call our intake line. All conversations are confidential, and
-        there&apos;s no cost to reach out.
+        or call our intake line. Our team will listen to your enquiry and help
+        explain the next steps. There is no cost to contact us.
       </>
     ),
   },
@@ -38,8 +38,9 @@ const faqs: FaqItem[] = [
     question: "Is there a cost to stay or receive services?",
     answer: (
       <>
-        No. All of our shelter, meals, counseling, and supportive services are
-        provided completely free of charge to individuals and families in need.
+        No. D Safe Place’s services are provided free of charge. The work is
+        supported through community support, donations, and partnerships so that
+        cost is not a barrier to seeking safety or care.
       </>
     ),
   },
@@ -48,21 +49,21 @@ const faqs: FaqItem[] = [
     question: "How do I book an appointment?",
     answer: (
       <>
-        You can book an appointment by filling out the appointment form on our{" "}
+        You can request an appointment using the form on our{" "}
         <Link
           href="/programs#book-appointment"
           className="font-medium underline underline-offset-2 transition-colors hover:text-[#192838]"
         >
           Programs page
-        </Link>
-        , sending us a message through our{" "}
+        </Link>{" "}
+        or contact us directly through the{" "}
         <Link
           href="/contact#contact-form"
           className="font-medium underline underline-offset-2 transition-colors hover:text-[#192838]"
         >
-          contact page
-        </Link>
-        , or calling us directly.
+          Contact page.
+        </Link>{" "}
+        Our Intake team will follow up to confirm a time.
       </>
     ),
   },
@@ -71,9 +72,9 @@ const faqs: FaqItem[] = [
     question: "Will my information stay private?",
     answer: (
       <>
-        Yes, strictly confidential. We prioritize your privacy and physical
-        safety above all else. Your personal details will never be shared without
-        your explicit consent.
+        We treat conversations and personal information with care and
+        confidentiality. Information is shared only with your consent or when
+        disclosure is required by law to protect safety.
       </>
     ),
   },
@@ -82,15 +83,24 @@ const faqs: FaqItem[] = [
     question: "How can I volunteer or donate?",
     answer: (
       <>
-        We welcome community support! You can sign up to volunteer, donate
-        essential supplies, or make a monetary donation through our{" "}
+        We welcome people who would like to support the work of D Safe Place.
+        Visit the{" "}
         <Link
           href="/contact#contact-form"
           className="font-medium underline underline-offset-2 transition-colors hover:text-[#192838]"
         >
           Get Involved
         </Link>{" "}
-        section or by contacting our team.
+        section or use the{" "}
+        <Link
+          href="/contact#contact-form"
+          className="font-medium underline underline-offset-2 transition-colors hover:text-[#192838]"
+        >
+          Contact form
+        </Link>{" "}
+        and select “Volunteer” or “Donate” to let us know how you would like to
+        help. Contributions of time and resources can help us continue to keep
+        the door open.
       </>
     ),
   },
@@ -99,8 +109,9 @@ const faqs: FaqItem[] = [
     question: "Do you offer marriage or family counseling?",
     answer: (
       <>
-        Yes, our licensed counselors provide compassionate individual, couples,
-        and family therapy sessions tailored to your healing journey.
+        Through Hospitality House & Family Support, we offer mediation and
+        counselling focused on strengthening marriages and households. These
+        conversations are approached with respect and without judgement.
       </>
     ),
   },
@@ -116,7 +127,7 @@ export function FaqSection() {
             Frequently asked
           </p>
           <h1 className="font-fraunces mt-2 text-3xl font-normal tracking-tight text-[#192838] sm:text-4xl md:text-[44px] md:leading-tight">
-            Questions we hear often
+            Questions We Hear Often
           </h1>
         </div>
 

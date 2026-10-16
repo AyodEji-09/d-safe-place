@@ -54,7 +54,7 @@ export default function RootLayout({
       className={`${inter.variable} ${fraunces.variable} ${amaranth.variable} h-full scroll-smooth antialiased`}
     >
       <body
-        className="bg-background text-foreground flex min-h-full flex-col bg-[#F5F8FB] font-sans"
+        className="bg-background text-foreground flex min-h-full flex-col font-sans"
         style={{ backgroundColor: "#F5F8FB" }}
       >
         <Navbar />

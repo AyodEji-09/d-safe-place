@@ -19,7 +19,7 @@ export function HeroSection() {
             </h1>
 
             <p className="mb-8 max-w-xl text-base leading-relaxed text-slate-600 sm:text-lg">
-              D Safe Place is a haven for children and displaced women — a place
+              D Safe Place is a haven for children and displaced women, a place
               to rest, heal, and rebuild, started in memory of the woman who
               taught us that every stranger deserves a seat at the table.
             </p>

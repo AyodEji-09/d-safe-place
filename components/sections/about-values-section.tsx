@@ -4,22 +4,22 @@ const values = [
   {
     title: "Children's Welfare",
     description:
-      "Every child who comes through our door is fed, tutored, and seen — regardless of how they arrived.",
+      "Every child who comes through our door deserves to be fed, supported, and seen, regardless of the circumstances that brought them here. We aim to provide a supervised, welcoming environment where children can learn, play, and experience the consistency and care every child deserves.",
   },
   {
     title: "Dignity for Displaced Women",
     description:
-      "We meet women in crisis with privacy, patience, and a real plan for what comes next.",
+      "We meet women facing displacement or crisis with privacy, patience, and respect. We recognise that each woman’s circumstances are different, and we seek to help her consider practical next steps in an environment that protects her dignity.",
   },
   {
     title: "Hospitality",
     description:
-      "A full table and an open chair. No one is asked to prove they belong here.",
+      "A full table and an open chair can communicate something powerful: you are welcome here. We believe hospitality means receiving people with thoughtfulness and kindness, without asking them to prove that they belong.",
   },
   {
     title: "Strong Families",
     description:
-      "We support marriages and households through mediation, not judgment.",
+      "Families may face difficult seasons that require patience, communication, and support. We seek to support couples and households through mediation and respectful conversation, without judgement, with the aim of helping families find constructive ways forward.",
   },
 ];
 
@@ -46,10 +46,10 @@ export function AboutValuesSection() {
         {/* Section Header */}
         <div className="mb-10 sm:mb-12">
           <span className="mb-2 block text-sm font-medium tracking-wide text-slate-400">
-            What guides us
+            What Guides Us
           </span>
           <h2 className="font-fraunces text-3xl font-normal tracking-tight text-white sm:text-4xl lg:text-[40px]">
-            Our core values
+            Our Core Values
           </h2>
         </div>
 

@@ -8,19 +8,19 @@ import {
 
 const communityGroups = [
   {
-    title: "Children, all ages",
+    title: "Children, All Ages",
     description:
-      "From toddlers to teens — care, meals, tutoring, and a steady place to be a kid.",
+      "From toddlers to teenagers, children need care, encouragement, and a steady place to be children. Our Children’s Haven programme is designed around meals, tutoring, reading, and supervised play.",
   },
   {
-    title: "Women in distress",
+    title: "Women in Distress",
     description:
-      "Displaced, unhoused, or fleeing crisis, seeking shelter and a way forward.",
+      "We seek to support women who are displaced, unhoused, or fleeing crisis by offering a compassionate point of contact and a path towards appropriate support and next steps.",
   },
   {
-    title: "Couples & families",
+    title: "Couples & Families",
     description:
-      "Households working through hardship who need mediation and support to stay together.",
+      "We welcome households working through hardship who may benefit from mediation, conversation, and support as they seek to strengthen relationships and navigate challenges.",
   },
 ];
 
@@ -34,10 +34,10 @@ export function AboutCommunitySection() {
         {/* Section Header */}
         <div className="mb-10 sm:mb-12">
           <span className="mb-2 block text-sm font-medium tracking-wide text-slate-500">
-            Who we serve
+            Who We Serve
           </span>
           <h2 className="font-fraunces text-primary text-3xl font-normal tracking-tight text-[#192838] sm:text-4xl lg:text-[40px]">
-            Our community
+            Our Community
           </h2>
         </div>
 
