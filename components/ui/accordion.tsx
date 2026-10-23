@@ -40,7 +40,7 @@ function AccordionTrigger({
         {...props}
       >
         <span>{children}</span>
-        <Plus className="size-5 shrink-0 text-[#192838] transition-transform duration-200 group-data-[state=open]:rotate-45" />
+        <Plus className="size-5 shrink-0 text-[#192838] transition-transform duration-300 ease-in-out group-data-[state=open]:rotate-45" />
       </AccordionPrimitive.Trigger>
     </AccordionPrimitive.Header>
   );
@@ -54,7 +54,7 @@ function AccordionContent({
   return (
     <AccordionPrimitive.Content
       data-slot="accordion-content"
-      className="overflow-hidden text-[15px] sm:text-base text-[#5b5b52] leading-relaxed transition-all data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down"
+      className="overflow-hidden text-[15px] sm:text-base text-[#5b5b52] leading-relaxed data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down"
       {...props}
     >
       <div className={cn("pt-0 pb-6 pr-8 text-[#5b5b52]", className)}>
