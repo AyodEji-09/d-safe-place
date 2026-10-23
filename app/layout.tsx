@@ -21,6 +21,7 @@ const amaranth = Amaranth({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://dsafeplace.org"),
   title: "D Safe Place | A community of welcome",
   description:
     "D Safe Place is a haven for children and displaced women — a place to rest, heal, and rebuild.",

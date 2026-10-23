@@ -79,6 +79,14 @@ export function Footer() {
               </li>
               <li>
                 <Link
+                  href="/in-memory"
+                  className="transition-colors hover:text-white"
+                >
+                  In Memory
+                </Link>
+              </li>
+              <li>
+                <Link
                   href="/programs"
                   className="transition-colors hover:text-white"
                 >
